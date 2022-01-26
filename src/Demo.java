@@ -3,28 +3,27 @@ public class Demo {
     public static StringBuffer compositeBuilder = new StringBuffer();
 
     public static void main(String[] args) {
-        Directory music = new Directory("MUSIC");
-        Directory scorpions = new Directory("SCORPIONS");
-        Directory dio = new Directory("DIO");
+        Directory app = new Directory("APP");
+        Directory codes = new Directory("CODES");
+        Directory specifications = new Directory("specifications");
         
         CreationFileFactory creationFileFactort = new CreationFileFactory();
         File F1;
+        File F2;
+        File F3;
+        File F4;
+        File F5;
         F1 = creationFileFactort.createFile("asem.txt").makeNewFile();
-        
-        music.add(F1);
-        
-//        File track1 = new File("Don't wary, be happy.mp3");
-//        File track2 = new File("track2.m3u");
-//        File track3 = new File("Wind of change.mp3");
-//        File track4 = new File("Big city night.mp3");
-//        File track5 = new File("Rainbow in the dark.mp3");
-//        music.add(track1);
-//        music.add(scorpions);
-//        music.add(track2);
-//        scorpions.add(track3);
-//        scorpions.add(track4);
-//        scorpions.add(dio);
-//        dio.add(track5);
-        music.ls();
+        F2 = creationFileFactort.createFile("txt.txt").makeNewFile();
+        F3 = creationFileFactort.createFile("xml.xml").makeNewFile();
+        F4 = creationFileFactort.createFile("json.json").makeNewFile();
+        app.add(F1);
+        codes.add(F2);
+        specifications.add(F3);
+        app.add(codes);
+        codes.add(specifications);
+        app.add(F4);
+
+        app.ls();
     }
 }
