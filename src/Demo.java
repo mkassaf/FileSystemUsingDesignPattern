@@ -13,15 +13,17 @@ public class Demo {
         File F3;
         File F4;
         File F5;
-        F1 = creationFileFactort.createFile("asem.txt").makeNewFile();
-        F2 = creationFileFactort.createFile("txt.txt").makeNewFile();
-        F3 = creationFileFactort.createFile("xml.xml").makeNewFile();
-        F4 = creationFileFactort.createFile("json.json").makeNewFile();
+        F1 = creationFileFactort.createFile("ReadMe.txt");
+        F2 = creationFileFactort.createFile("txt.txt");
+        F3 = creationFileFactort.createFile("xml.xml");
+        F4 = creationFileFactort.createFile("json.json");
+        F5 = creationFileFactort.createFile("json1.json");
         app.add(F1);
         codes.add(F2);
         specifications.add(F3);
         app.add(codes);
         codes.add(specifications);
+        codes.add(F5);
         app.add(F4);
 
         app.ls();

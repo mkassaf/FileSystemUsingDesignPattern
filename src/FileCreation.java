@@ -1,4 +1,4 @@
 
 public interface FileCreation {
-	File makeNewFile();
+	File makeNewFile(String name);
 }

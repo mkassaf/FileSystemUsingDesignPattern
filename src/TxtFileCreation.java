@@ -1,12 +1,25 @@
 
 public class TxtFileCreation implements FileCreation {
-	public String name;
+	private static TxtFileCreation obj;
+	private String name;
 	
-	public TxtFileCreation(String name) {
-		this.name = name;
+	private TxtFileCreation() {
+		
 	}
 	
-	public File makeNewFile() {
+	public static TxtFileCreation getInstance() {
+		if(obj == null) {
+			synchronized (TxtFileCreation.class) {
+				if (obj==null) {
+					obj = new TxtFileCreation();
+				}
+			}
+		}
+		return obj;
+	}
+	
+	public File makeNewFile(String name) {
+		this.name = name;
 		File txt = new File(this.name);
 		return txt;
 	}
