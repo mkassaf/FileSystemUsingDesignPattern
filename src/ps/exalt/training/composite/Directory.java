@@ -1,8 +1,12 @@
+package ps.exalt.training.composite;
 import java.util.ArrayList;
+
+import ps.exalt.training.Demo;
+import ps.exalt.training.exception.DataNotSuitableException;
 
 
 // Directory implements the "lowest common denominator"
-class Directory implements AbstractFile {
+public class Directory implements AbstractFile {
     private String name;
     private ArrayList<Object> includedFiles = new ArrayList<Object>();
 
@@ -10,17 +14,27 @@ class Directory implements AbstractFile {
         this.name = name;
     }
 
-    public void add(Object obj) {
-        includedFiles.add(obj);
+    
+    /**
+     * 
+     * @param obj
+     * @throws DataNotSuitableException
+     */
+    public void add(AbstractFile file) throws DataNotSuitableException {
+    	if(file != null) {
+			includedFiles.add(file);
+		}
+		else {
+			throw new DataNotSuitableException("DataNotSuitableException , The file has not been added !!");
+		}
     }
 
-    public void ls() {
+    public void listFiles() {
         System.out.println(Demo.compositeBuilder + name);
         Demo.compositeBuilder.append("   ");
         for (Object includedFile : includedFiles) {
-            // Leverage the "lowest common denominator"
             AbstractFile obj = (AbstractFile) includedFile;
-            obj.ls();
+            obj.listFiles();
         }
         Demo.compositeBuilder.setLength(Demo.compositeBuilder.length() - 3);
     }
